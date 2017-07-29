@@ -2,7 +2,7 @@
 
 Ionic 3 with Google Cloud Vision using Camera Native and AngularFire2
 
-[Alt text](/src/assets/img/ai.png?raw=true "AI Camera")
+![Alt text](/src/assets/img/ai.png?raw=true "AI Camera")
 
 
 ```bash
