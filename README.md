@@ -1,26 +1,14 @@
-This is a starter template for [Ionic](http://ionicframework.com/docs/) projects.
+## ionic3Vision
 
-## How to use this template
+Ionic 3 with Google Cloud Vision using Camera Native and AngularFire2
 
-*This template does not work on its own*. The shared files for each starter are found in the [ionic2-app-base repo](https://github.com/ionic-team/ionic2-app-base).
+[Alt text](/src/assets/img/ai.png?raw=true "AI Camera")
 
-To use this template, either create a new ionic project using the ionic node.js utility, or copy the files from this repository into the [Starter App Base](https://github.com/ionic-team/ionic2-app-base).
-
-### With the Ionic CLI:
-
-Take the name after `ionic2-starter-`, and that is the name of the template to be used when using the `ionic start` command below:
 
 ```bash
-$ sudo npm install -g ionic cordova
-$ ionic start myBlank blank
+    "angularfire2": "^4.0.0-rc.1",
+    "firebase": "^4.2.0",
+    "ionic-angular": "3.6.0",
+    "cordova-plugin-camera": "^2.4.1",
+    "promise-polyfill": "6.0.2",
 ```
-
-Then, to run it, cd into `myBlank` and run:
-
-```bash
-$ ionic cordova platform add ios
-$ ionic cordova run ios
-```
-
-Substitute ios for android if not on a Mac.
-
