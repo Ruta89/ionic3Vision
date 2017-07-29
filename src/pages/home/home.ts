@@ -1,4 +1,4 @@
-import { GoogleCloudVisionServiceProvider } from "./../../providers/google-cloud-vision-service/google-cloud-vision-service";
+import { GoogleCloudVisionServiceProvider } from "../../providers/google-cloud-vision-service/google-cloud-vision-service";
 import { Camera, CameraOptions } from "@ionic-native/camera";
 import { Component } from "@angular/core";
 import { AlertController } from "ionic-angular";
@@ -54,7 +54,7 @@ export class HomePage {
       imageData => {
         this.vision.getLabels(imageData).subscribe(
           result => {
-            this.saveResults(imageData, result.json().response);
+            this.saveResults(imageData, result.json().responses);
           },
           err => {
             this.showAlert(err);
