@@ -6,7 +6,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { Camera } from '@ionic-native/camera';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
 
 import { HttpModule } from '@angular/http';
 import { AngularFireModule } from 'angularfire2';
@@ -17,8 +16,7 @@ import { GoogleCloudVisionServiceProvider } from '../providers/google-cloud-visi
 
 @NgModule({
   declarations: [
-    MyApp,
-    HomePage
+    MyApp
   ],
   imports: [
     BrowserModule,
@@ -30,8 +28,7 @@ import { GoogleCloudVisionServiceProvider } from '../providers/google-cloud-visi
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    HomePage
+    MyApp
   ],
   providers: [
     StatusBar,

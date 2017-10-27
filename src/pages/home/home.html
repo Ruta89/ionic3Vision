@@ -1,3 +1,4 @@
+
 <ion-header>
   <ion-navbar color="secondary">
     <ion-title>
@@ -10,7 +11,7 @@
   <h2>Sztuczna inteligencja</h2>
   <ion-card *ngFor="let item of items | async">
     <img [src]="'data:image/png;base64,' + item.imageData" />
-    <ion-card-content>
+    <ion-card-content *ngIf="item.results">
       <ion-list no-lines>
         <ion-list-header> Etykiety </ion-list-header>
         <ion-item *ngFor="let label of item.results[0].labelAnnotations">

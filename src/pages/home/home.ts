@@ -1,25 +1,28 @@
+import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { GoogleCloudVisionServiceProvider } from "../../providers/google-cloud-vision-service/google-cloud-vision-service";
 import { Camera, CameraOptions } from "@ionic-native/camera";
-import { Component } from "@angular/core";
-import { AlertController } from "ionic-angular";
 import {
   AngularFireDatabase,
   FirebaseListObservable
 } from "angularfire2/database";
 
+@IonicPage()
 @Component({
-  selector: "page-home",
-  templateUrl: "home.html"
+  selector: 'page-home',
+  templateUrl: 'home.html',
 })
 export class HomePage {
   items: FirebaseListObservable<any[]>;
-  constructor(
-    private camera: Camera,
+  constructor(public navCtrl: NavController, public navParams: NavParams,   private camera: Camera,
     private vision: GoogleCloudVisionServiceProvider,
     private db: AngularFireDatabase,
-    private alertCtrl: AlertController
-  ) {
-    this.items = db.list("items");
+    private alertCtrl: AlertController) {
+      this.items = db.list("VisionItems");
+  }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad HomePage');
   }
 
   saveResults(imageData, results) {
@@ -66,4 +69,5 @@ export class HomePage {
       }
     );
   }
+
 }
