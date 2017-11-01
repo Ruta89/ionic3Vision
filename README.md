@@ -4,6 +4,13 @@ Ionic 3 with Google Cloud Vision using Camera Native and AngularFire2 !
 
 ![Alt text](/src/assets/img/ai.png?raw=true "AI Camera")
 
+![Alt text](/src/assets/img/ai2.png?raw=true "AI Camera")
+
+![Alt text](/src/assets/img/ai3.png?raw=true "AI Camera")
+
+![Alt text](/src/assets/img/ai4.png?raw=true "AI Camera")
+
+
 
 ```bash
     "angularfire2": "^4.0.0-rc.1",

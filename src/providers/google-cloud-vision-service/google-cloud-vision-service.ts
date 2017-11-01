@@ -28,4 +28,40 @@ export class GoogleCloudVisionServiceProvider {
     return this.http.post('https://vision.googleapis.com/v1/images:annotate?key=' + environment.googleCloudVisionAPIKey, body);
   }
 
+    getTextLabels(base64Image){
+    const body = {
+      "requests": [
+        {
+          "image": {
+            "content": base64Image
+          },
+          "features": [
+            {
+              "type": "TEXT_DETECTION"
+            }
+          ]
+        }
+      ]
+    }
+    return this.http.post('https://vision.googleapis.com/v1/images:annotate?key=' + environment.googleCloudVisionAPIKey, body);
+  }
+
+
+  getDocumentTextLabels(base64Image){
+    const body = {
+      "requests": [
+        {
+          "image": {
+            "content": base64Image
+          },
+          "features": [
+            {
+              "type": "DOCUMENT_TEXT_DETECTION"
+            }
+          ]
+        }
+      ]
+    }
+    return this.http.post('https://vision.googleapis.com/v1/images:annotate?key=' + environment.googleCloudVisionAPIKey, body);
+  }
 }

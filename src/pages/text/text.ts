@@ -9,24 +9,24 @@ import {
 
 @IonicPage()
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html',
+  selector: 'page-text',
+  templateUrl: 'text.html',
 })
-export class HomePage {
-  items: FirebaseListObservable<any[]>;
+export class TextPage {
+  textitems: FirebaseListObservable<any[]>;
   constructor(public navCtrl: NavController, public navParams: NavParams,   private camera: Camera,
     private vision: GoogleCloudVisionServiceProvider,
     private db: AngularFireDatabase,
     private alertCtrl: AlertController) {
-      this.items = db.list("VisionItems");
+      this.textitems = db.list("VisionTextItems");
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad HomePage');
+    console.log('ionViewDidLoad TextPage');
   }
 
   saveResults(imageData, results) {
-    this.items
+    this.textitems
       .push({ imageData: imageData, results: results })
       .then(_ => {})
       .catch(err => {
@@ -55,7 +55,7 @@ export class HomePage {
 
     this.camera.getPicture(options).then(
       imageData => {
-        this.vision.getLabels(imageData).subscribe(
+        this.vision.getTextLabels(imageData).subscribe(
           result => {
             this.saveResults(imageData, result.json().responses);
           },
@@ -70,11 +70,4 @@ export class HomePage {
     );
   }
 
-  goText(){
-    this.navCtrl.push('TextPage');
-  }
-
-  goDocText(){
-    this.navCtrl.push('DoctextPage');
-  }
 }

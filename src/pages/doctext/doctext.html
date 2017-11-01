@@ -2,21 +2,19 @@
 <ion-header>
   <ion-navbar color="secondary">
     <ion-title>
-      AI Kamera
+      doc text items
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h2>Sztuczna inteligencja</h2>
-  <button ion-button full (click)="goText()" >Go text</button>
-  <button ion-button block (click)="goDocText()" >Go Doc text</button>
-  <ion-card *ngFor="let item of items | async">
+  <h2>Doc Text Sztuczna inteligencja</h2>
+  <ion-card *ngFor="let item of doctextitems | async">
     <img [src]="'data:image/png;base64,' + item.imageData" />
     <ion-card-content *ngIf="item.results">
       <ion-list no-lines>
         <ion-list-header> Etykiety </ion-list-header>
-        <ion-item *ngFor="let label of item.results[0].labelAnnotations">
+        <ion-item *ngFor="let label of item.results[0].textAnnotations">
           {{ label.description }}
         </ion-item>
       </ion-list>

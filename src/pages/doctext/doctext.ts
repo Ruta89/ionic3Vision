@@ -9,24 +9,24 @@ import {
 
 @IonicPage()
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html',
+  selector: 'page-doctext',
+  templateUrl: 'doctext.html',
 })
-export class HomePage {
-  items: FirebaseListObservable<any[]>;
+export class DoctextPage {
+  doctextitems: FirebaseListObservable<any[]>;
   constructor(public navCtrl: NavController, public navParams: NavParams,   private camera: Camera,
     private vision: GoogleCloudVisionServiceProvider,
     private db: AngularFireDatabase,
     private alertCtrl: AlertController) {
-      this.items = db.list("VisionItems");
+      this.doctextitems = db.list("VisionDocTextItems");
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad HomePage');
+    console.log('ionViewDidLoad VisionDocText');
   }
 
   saveResults(imageData, results) {
-    this.items
+    this.doctextitems
       .push({ imageData: imageData, results: results })
       .then(_ => {})
       .catch(err => {
@@ -55,7 +55,7 @@ export class HomePage {
 
     this.camera.getPicture(options).then(
       imageData => {
-        this.vision.getLabels(imageData).subscribe(
+        this.vision.getDocumentTextLabels(imageData).subscribe(
           result => {
             this.saveResults(imageData, result.json().responses);
           },
@@ -70,11 +70,5 @@ export class HomePage {
     );
   }
 
-  goText(){
-    this.navCtrl.push('TextPage');
-  }
 
-  goDocText(){
-    this.navCtrl.push('DoctextPage');
-  }
 }
